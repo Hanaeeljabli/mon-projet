@@ -11,10 +11,10 @@ public class Carte {
     private int positionY;
 
     public Carte(String cheminFichier) {
-        chargerCarteDepuisFichier(cheminFichier);
+        chargerCarte(cheminFichier);
     }
 
-    private void chargerCarteDepuisFichier(String cheminFichier) {
+    private void chargerCarte(String cheminFichier) {
         try (BufferedReader br = new BufferedReader(new FileReader(cheminFichier))) {
             String ligne;
             StringBuilder carteBuilder = new StringBuilder();
@@ -96,7 +96,7 @@ public class Carte {
             }
         }
 
-        // Mettre à jour la position du personnage après les déplacements
+        // Definie la place du personnage sur la carte
         carte[positionX][positionY] = 'P';
     }
     public int getPositionX() {
@@ -112,23 +112,24 @@ public class Carte {
         String filepath = "C:/Users/pc/downloads/carte v2.txt";
         Carte Test1 = new Carte(filepath);
         Test1.afficherCarte();
-
+        // coordonnées initiales
         int departXTest1 = 3; // coordonnées initiales
         int departYTest1 = 0; // coordonnées initiales
         String deplacTest1 = "SSSSEEEEEENN"; // déplacements du personnage
 
         Test1.deplacerPersonnage(departXTest1, departYTest1, deplacTest1);
         Test1.afficherCarte();
-        System.out.println("Coordonnées finales du personnage pour le test 1 : (" + Test1.getPositionX() + ", " + Test1.getPositionY() + ")");
+        System.out.println("Coordonnées finales  pour le test 1 : (" + Test1.getPositionX() + ", " + Test1.getPositionY() + ")");
         // Deuxième test
         Carte Test2 = new Carte(filepath);
         Test2.afficherCarte();
-        int departXTest2 = 6; // coordonnées initiales
-        int departYTest2 = 7; // coordonnées initiales
-        String deplacementsTest2 = "OONOOOSSO"; // déplacements réels
+        // coordonnées initiales
+        int departXTest2 = 6;
+        int departYTest2 = 7;
+        String deplacementsTest2 = "OONOOOSSO"; // déplacements
         Test2.deplacerPersonnage(departXTest2, departYTest2, deplacementsTest2);
         Test2.afficherCarte();
-        System.out.println("Coordonnées finales du personnage pour le test 2 : (" + Test2.getPositionX() + ", " + Test2.getPositionY() + ")");
+        System.out.println("Coordonnées finales pour le test 2 : (" + Test2.getPositionX() + ", " + Test2.getPositionY() + ")");
 
 
 
